@@ -16,5 +16,5 @@ use BrainGames\Cli;
 use function cli\line;
 
 line('Welcome to the Brain Game!');
-line(Cli\appointsName()); 
+Cli\appointsName(); 
 
