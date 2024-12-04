@@ -1,13 +1,13 @@
 <?php
 
-namespace BrainGames\Logic;
+namespace BrainGames\Games\ParityCheck;
 
 use BrainGames\Cli;
 
 use function cli\line;
 use function cli\prompt;
 
-function parityCheck()
+function checkingTheParity()
 {
     Cli\appointsName();
     global $userName;
