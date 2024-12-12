@@ -2,13 +2,13 @@
 
 namespace BrainGames\Factors;
 
-function decomposeIntoPrimeFactors ($number)
+function decomposeIntoPrimeFactors($number)
 {
     $numbers = [];
     for ($i = 1; $i <= $number; $i++) {
         if ($number % $i == 0) {
-	$numbers[] = $i;
+            $numbers[] = $i;
         }
     }
-  return $numbers;
+    return $numbers;
 }

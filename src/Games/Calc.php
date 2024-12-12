@@ -34,7 +34,7 @@ function countingTheNumbers()
             line("Correct!");
         } elseif ($answer !== (string)$result) {
             line("'$answer' is wrong answer ;(. Correct answer was '$result'.");
-            line("Let's try again, $userName.");
+            line("Let's try again, $userName!");
             break;
         }
     }

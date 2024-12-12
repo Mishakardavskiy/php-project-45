@@ -4,5 +4,7 @@
 https://asciinema.org/a/dQ7OryYdBfyd5m9V3Eb0dgw7W //brain-even
 https://asciinema.org/a/WwomANwoazmf3XKhNCv9qtv1O //brain-calc
 https://asciinema.org/a/BytGz5XhNqEIyhI2HlBG58hfK //brain-gcd
+https://asciinema.org/a/sZLhsIh3vlIWF5gdRh0Xx9XDo //brain-progression
+
 
 
