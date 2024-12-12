@@ -1,30 +1,32 @@
 <?php
 
-namespace BrainGames\Games\ParityCheck;
+namespace BrainGames\Games\PrimeNumbers;
 
 use BrainGames\Cli;
+use BrainGames\Factors;
 
 use function cli\line;
 use function cli\prompt;
 
-function checkingTheParity()
+function findingPrimeNumber()
 {
     Cli\appointsName();
     global $userName;
-    line("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
     for ($i  = 0; $i < 3; $i++) {
-        $randNum = rand();
-        line("Question: %s", $randNum);
+        $number =  rand(1, 100);
+        line("Question: %s", $number);
         $answer = prompt('Your answer');
-        //проверка на правильность ответа
-        $res =  ($answer === 'yes' && $randNum % 2 === 0) || ($answer === 'no' && $randNum % 2 !== 0);
+        $multipliersOfTheNum = Factors\decomposeIntoPrimeFactors($number);
+        $lenghtArray = sizeof($multipliersOfTheNum);
+        $res =  ($answer === 'yes' && $lenghtArray === 2) || ($answer === 'no' && $lenghtArray  !== 2);
         if ($res === true) {
             line('Correct!');
-        } elseif ($randNum % 2 !== 0) {
+        } elseif ($lenghtArray  !== 2) {
             line("'$answer' is wrong answer ;(. Correct answer was 'no'.");
             line("Let's try again, $userName!");
             break;
-        } elseif ($randNum % 2 === 0) {
+        } elseif ($lenghtArray === 2) {
             line("'$answer' is wrong answer ;(. Correct answer was 'yes'.");
             line("Let's try again, $userName!");
             break;
