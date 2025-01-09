@@ -22,7 +22,7 @@ function searchForProgression()
         if ((int)$answer === $missingNumber) {
               line("Correct!");
         } elseif ((int)$answer !== $missingNumber) {
-            line("'$answer' is wrong answer ;(. Correct answer was '$missingNumber'. Let's try again, $userName!");
+            line("'$answer' is wrong answer ;(. Correct answer was '$missingNumber'.\nLet's try again, $userName!");
             break;
         }
     }

@@ -24,7 +24,7 @@ function greatestCommonDivisor()
         if ((int)$answer === $maxDivisor) {
             line("Correct!");
         } elseif ((int)$answer !== $maxDivisor) {
-            line("'$answer' is wrong answer ;(. Correct answer was '$maxDivisor'.Let's try again, $userName!");
+            line("'$answer' is wrong answer ;(. Correct answer was '$maxDivisor'.\nLet's try again, $userName!");
             break;
         }
     }

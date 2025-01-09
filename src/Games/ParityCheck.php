@@ -11,7 +11,7 @@ function checkingTheParity()
 {
     Cli\appointsName();
     global $userName;
-    line("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    line('Answer "yes" if the number is even, otherwise answer "no".');
     for ($i  = 0; $i < 3; $i++) {
         $randNum = rand();
         line("Question: %s", $randNum);
