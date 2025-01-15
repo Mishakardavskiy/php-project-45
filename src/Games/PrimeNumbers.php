@@ -19,6 +19,7 @@ function findingPrimeNumber()
         $answer = prompt('Your answer');
         $multipliersOfTheNum = Factors\decomposeIntoPrimeFactors($number);
         $lenghtArray = sizeof($multipliersOfTheNum);
+        $res = 0;
         $res =  ($answer === 'yes' && $lenghtArray === 2) || ($answer === 'no' && $lenghtArray  !== 2);
         if ($res === true) {
             line('Correct!');

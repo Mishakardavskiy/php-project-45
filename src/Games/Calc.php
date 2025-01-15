@@ -18,6 +18,7 @@ function countingTheNumbers()
         $operators = array('+', '-', '*');
         $operator = $operators[rand(0, 2)];
         line("Question: %s %s %s", $numOne, $operator, $numTwo);
+        $result = 0;
         switch ($operator) {
             case '+':
                 $result = $numOne + $numTwo;
@@ -30,15 +31,16 @@ function countingTheNumbers()
                 break;
         }
         $answer = prompt('Your answer');
-        if ($answer === (string)$result) {
+        $answer = (int)$answer;
+        if ($answer === $result) {
             line("Correct!");
-        } elseif ($answer !== (string)$result) {
+        } elseif ($answer !== $result) {
             line("'$answer' is wrong answer ;(. Correct answer was '$result'.");
             line("Let's try again, $userName!");
             break;
         }
     }
-    if ($answer === (string)$result) {
+    if ($answer === $result) {
         line("Congratulations, $userName!");
     }
 }

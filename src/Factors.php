@@ -2,7 +2,7 @@
 
 namespace BrainGames\Factors;
 
-function decomposeIntoPrimeFactors($number)
+function decomposeIntoPrimeFactors(int $number)
 {
     $numbers = [];
     for ($i = 1; $i <= $number; $i++) {

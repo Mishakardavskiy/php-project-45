@@ -14,19 +14,20 @@ function searchForProgression()
     global $userName;
     global $missingNumber;
     line("What number is missing in the progression?");
-    for ($i  = 0; $i < 3; $i++) {
+    for ($i = 0; $i < 3; $i++) {
         $progression = ProgressNum\collectingTheProgression();
-        $listNum = implode(' ', $progression);
-         line("Question: %s", $listNum);
+        line("Question: %s", $progression);
         $answer = prompt('Your answer');
-        if ((int)$answer === $missingNumber) {
+        //чтобы прошло правильно сравнение меняем тип данных string на int
+        $answer = (int)$answer;
+        if ($answer === $missingNumber) {
               line("Correct!");
-        } elseif ((int)$answer !== $missingNumber) {
+        } elseif ($answer !== $missingNumber) {
             line("'$answer' is wrong answer ;(. Correct answer was '$missingNumber'.\nLet's try again, $userName!");
             break;
         }
     }
-    if ((int)$answer === $missingNumber) {
+    if ($answer === $missingNumber) {
         line("Congratulations, $userName!");
     }
 }

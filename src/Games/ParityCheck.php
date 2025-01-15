@@ -17,6 +17,7 @@ function checkingTheParity()
         line("Question: %s", $randNum);
         $answer = prompt('Your answer');
         //проверка на правильность ответа
+        $res = 0;
         $res =  ($answer === 'yes' && $randNum % 2 === 0) || ($answer === 'no' && $randNum % 2 !== 0);
         if ($res === true) {
             line('Correct!');
