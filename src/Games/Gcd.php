@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\Gcd;
 
-use BrainGames\Cli;
+use BrainGames\Engine;
 use BrainGames\Factors;
 
 use function cli\line;
@@ -10,28 +10,26 @@ use function cli\prompt;
 
 function greatestCommonDivisor()
 {
-    Cli\appointsName();
-    global $userName;
+    $userName = '';
+    Engine\appointsName($userName);
     line("Find the greatest common divisor of given numbers.");
     for ($i  = 0; $i < 3; $i++) {
         $numOne = rand(1, 10);
         $numTwo =  rand(1, 10);
-        line("Question: %s %s", $numOne, $numTwo);
-        $answer = prompt('Your answer');
+        Engine\askQuestion($numOne, $numTwo);
+        $answer = '';
+        Engine\getAnswer($answer);
         //чтобы прошло правильно сравнение меняем тип данных string на int
         $answer = (int)$answer;
-        $multipliersOfTheFirstNum = Factors\decomposeIntoPrimeFactors($numOne);
-        $multipliersOfTheSecondNum = Factors\decomposeIntoPrimeFactors($numTwo);
-        $maxDivisor = 0;
-        $maxDivisor = max(array_intersect($multipliersOfTheFirstNum, $multipliersOfTheSecondNum));
+        $divisorFirstNum = Engine\countingDivisors($numOne);
+        $divisorSecondNum = Engine\countingDivisors($numTwo);
+        $maxDivisor = max(array_intersect($divisorFirstNum, $divisorSecondNum));
         if ($answer === $maxDivisor) {
             line("Correct!");
         } elseif ($answer !== $maxDivisor) {
-            line("'$answer' is wrong answer ;(. Correct answer was '$maxDivisor'.\nLet's try again, $userName!");
+            Engine\printsAnError($answer, $maxDivisor, $userName);
             break;
         }
     }
-    if ($answer === $maxDivisor) {
-        line("Congratulations, $userName!");
-    }
+        Engine\gotWinner($answer, $maxDivisor, $userName);
 }

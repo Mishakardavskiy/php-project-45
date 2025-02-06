@@ -1,25 +1,23 @@
 <?php
 
-namespace BrainGames\Games\ParityCheck;
+namespace BrainGames\Games\Even;
 
-use BrainGames\Cli;
+use BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
 function checkingTheParity()
 {
-    Cli\appointsName();
-    global $userName;
+    $userName = '';
+    Engine\appointsName($userName);
     line('Answer "yes" if the number is even, otherwise answer "no".');
     for ($i  = 0; $i < 3; $i++) {
-        $randNum = rand();
-        line("Question: %s", $randNum);
-        $answer = prompt('Your answer');
-        //проверка на правильность ответа
-        $res = 0;
-        $res =  ($answer === 'yes' && $randNum % 2 === 0) || ($answer === 'no' && $randNum % 2 !== 0);
-        if ($res === true) {
+        $randNum = rand(1, 100);
+        Engine\askQuestion($randNum);
+        $answer = '';
+        Engine\getAnswer($answer);
+        if (($answer == 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) {
             line('Correct!');
         } elseif ($randNum % 2 !== 0) {
             line("'$answer' is wrong answer ;(. Correct answer was 'no'.");
@@ -31,7 +29,7 @@ function checkingTheParity()
             break;
         }
     }
-    if ($res === true) {
+    if (($answer === 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) {
         line("Congratulations, $userName!");
     }
 }

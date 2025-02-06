@@ -12,7 +12,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function cli\line;
 use BrainGames\Games\gcd;
 Gcd\greatestCommonDivisor();
 

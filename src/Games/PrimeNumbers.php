@@ -2,38 +2,38 @@
 
 namespace BrainGames\Games\PrimeNumbers;
 
-use BrainGames\Cli;
-use BrainGames\Factors;
+use BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
 function findingPrimeNumber()
 {
-    Cli\appointsName();
-    global $userName;
+    $userName = '';
+    Engine\appointsName($userName);
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
     for ($i  = 0; $i < 3; $i++) {
         $number =  rand(1, 100);
-        line("Question: %s", $number);
-        $answer = prompt('Your answer');
-        $multipliersOfTheNum = Factors\decomposeIntoPrimeFactors($number);
-        $lenghtArray = sizeof($multipliersOfTheNum);
-        $res = 0;
-        $res =  ($answer === 'yes' && $lenghtArray === 2) || ($answer === 'no' && $lenghtArray  !== 2);
-        if ($res === true) {
+        Engine\askQuestion($number);
+        $answer = '';
+/*У простого числа всего 2 делителя,
+находим их, и если размер массива = 2,
+то число простое*/
+        Engine\getAnswer($answer);
+        $numDivisors = sizeof(Engine\countingDivisors($number));
+        if (($answer == 'yes' && $numDivisors == 2) || ($answer == 'no' && $numDivisors  !== 2)) {
             line('Correct!');
-        } elseif ($lenghtArray  !== 2) {
+        } elseif ($numDivisors !== 2) {
             line("'$answer' is wrong answer ;(. Correct answer was 'no'.");
             line("Let's try again, $userName!");
             break;
-        } elseif ($lenghtArray === 2) {
+        } elseif ($numDivisors === 2) {
             line("'$answer' is wrong answer ;(. Correct answer was 'yes'.");
             line("Let's try again, $userName!");
             break;
         }
     }
-    if ($res === true) {
+    if (($answer == 'yes' && $numDivisors == 2) || ($answer == 'no' && $numDivisors  !== 2)) {
         line("Congratulations, $userName!");
     }
 }

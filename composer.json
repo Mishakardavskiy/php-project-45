@@ -13,13 +13,11 @@
             "Hexlet\\Code\\": "src/"
 	},
 	"files": [
-		"src/Cli.php",
-		"src/Games/ParityCheck.php",
+		"src/Games/Even.php",
+        "src/Engine.php",
 		"src/Games/Calc.php",
 		"src/Games/Gcd.php",
-		"src/Factors.php",
 		"src/Games/Progression.php",
-		"src/ProgressNum.php",
 		"src/Games/PrimeNumbers.php"
 	]
     },
