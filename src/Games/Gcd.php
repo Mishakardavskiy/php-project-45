@@ -3,7 +3,6 @@
 namespace BrainGames\Games\Gcd;
 
 use BrainGames\Engine;
-use BrainGames\Factors;
 
 use function cli\line;
 use function cli\prompt;

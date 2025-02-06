@@ -14,5 +14,5 @@ if (file_exists($autoloadPath1)) {
 
 use BrainGames\Cli;
 use function cli\line;
-Cli\appointsName(); 
+Cli\askForTheName(); 
 
