@@ -5,14 +5,14 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function appointsName(&$userName)
+function appointsName(string &$userName)
 {
     line('Welcome to the Brain Games!');
     $userName = prompt('May I have your name?');
     line("Hello, %s!", $userName);
 }
 
-function askQuestion(...$questions)
+function askQuestion(array|string ...$questions)
 {
     $lenght = count($questions);
     if ($lenght === 1) {

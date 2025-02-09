@@ -16,7 +16,7 @@ function checkingTheParity()
         $randNum = rand(1, 100);
         Engine\askQuestion($randNum);
         $answer = '';
-        Engine\getAnswer($answer);
+        $answer = Engine\getAnswer($answer);
         if (($answer == 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) {
             line('Correct!');
         } elseif ($randNum % 2 !== 0) {

@@ -17,7 +17,7 @@ function searchForProgression()
         $progression = Engine\collectingTheProgression();
         Engine\askQuestion($progression);
         $answer = '';
-        Engine\getAnswer($answer);
+        $answer = Engine\getAnswer($answer);
         //чтобы прошло правильно сравнение меняем тип данных string на int
         $answer = (int)$answer;
         if ($answer === $missingNumber) {
