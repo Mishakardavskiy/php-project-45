@@ -24,13 +24,13 @@ function askQuestion(...$questions)
     }
 }
 
-function getAnswer(&$answer)
+function getAnswer(string &$answer)
 {
     $answer = prompt('Your answer');
     return $answer;
 }
 
-function gotWinner($answer, $rightAnswer, $userName)
+function gotWinner(int|string $answer, int $rightAnswer, string $userName)
 {
     if ($answer === $rightAnswer) {
         line("Congratulations, $userName!");
@@ -49,7 +49,7 @@ function countingDivisors(int $number)
     return $numbers;
 }
 //печатаем сообщение об ошибке для Progression, Calc, Gcd
-function printsAnError($answer, $rightAnswer, $userName)
+function printsAnError(int|string $answer, int $rightAnswer, string $userName)
 {
     line("'$answer' is wrong answer ;(. Correct answer was '$rightAnswer'.\nLet's try again, $userName!");
 }

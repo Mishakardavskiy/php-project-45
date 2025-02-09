@@ -15,7 +15,7 @@ function countingTheNumbers()
     for ($i  = 0; $i < 3; $i++) {
         $numOne = rand(0, 10);
         $numTwo = rand(0, 10);
-        $operators = array('+', '-', '*');
+        $operators = ['+', '-', '*'];
         $operator = $operators[rand(0, 2)];
         Engine\askQuestion($numOne, $operator, $numTwo);
         switch ($operator) {
