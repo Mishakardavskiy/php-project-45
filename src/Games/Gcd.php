@@ -23,12 +23,13 @@ function greatestCommonDivisor()
         $divisorFirstNum = Engine\countingDivisors($numOne);
         $divisorSecondNum = Engine\countingDivisors($numTwo);
         $maxDivisor = max(array_intersect($divisorFirstNum, $divisorSecondNum));
-        if ($answer === $maxDivisor) {
+        if ($answer === $maxDivisor && $i === 2) {
+            line("Correct!\nCongratulations, $userName!");
+        } elseif ($answer === $maxDivisor) {
             line("Correct!");
         } elseif ($answer !== $maxDivisor) {
             Engine\printsAnError($answer, $maxDivisor, $userName);
             break;
         }
     }
-        Engine\gotWinner($answer, $maxDivisor, $userName);
 }

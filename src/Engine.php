@@ -12,7 +12,7 @@ function appointsName(string &$userName)
     line("Hello, %s!", $userName);
 }
 
-function askQuestion(array|string ...$questions)
+function askQuestion(mixed ...$questions)
 {
     $lenght = count($questions);
     if ($lenght === 1) {
@@ -28,13 +28,6 @@ function getAnswer(string &$answer)
 {
     $answer = prompt('Your answer');
     return $answer;
-}
-
-function gotWinner(int|string $answer, int $rightAnswer, string $userName)
-{
-    if ($answer === $rightAnswer) {
-        line("Congratulations, $userName!");
-    }
 }
 
 //Функция используется в 2 файлах

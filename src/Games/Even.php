@@ -17,19 +17,16 @@ function checkingTheParity()
         Engine\askQuestion($randNum);
         $answer = '';
         $answer = Engine\getAnswer($answer);
-        if (($answer == 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) {
+        if ((($answer == 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) && $i === 2) {
+            line("Correct!\nCongratulations, $userName!");
+        } elseif (($answer == 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) {
             line('Correct!');
         } elseif ($randNum % 2 !== 0) {
-            line("'$answer' is wrong answer ;(. Correct answer was 'no'.");
-            line("Let's try again, $userName!");
+            line("'$answer' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, $userName!");
             break;
         } elseif ($randNum % 2 === 0) {
-            line("'$answer' is wrong answer ;(. Correct answer was 'yes'.");
-            line("Let's try again, $userName!");
+            line("'$answer' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, $userName!");
             break;
         }
-    }
-    if (($answer === 'yes' && $randNum % 2 == 0) || ($answer == 'no' && $randNum % 2 !== 0)) {
-        line("Congratulations, $userName!");
     }
 }

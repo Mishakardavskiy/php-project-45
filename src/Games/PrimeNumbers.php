@@ -21,19 +21,16 @@ function findingPrimeNumber()
 то число простое*/
         Engine\getAnswer($answer);
         $numDivisors = sizeof(Engine\countingDivisors($number));
-        if (($answer == 'yes' && $numDivisors == 2) || ($answer == 'no' && $numDivisors  !== 2)) {
+        if ((($answer == 'yes' && $numDivisors == 2) || ($answer == 'no' && $numDivisors  !== 2)) && $i === 2) {
+            line("Correct!\nCongratulations, $userName!");
+        } elseif (($answer == 'yes' && $numDivisors == 2) || ($answer == 'no' && $numDivisors  !== 2)) {
             line('Correct!');
         } elseif ($numDivisors !== 2) {
-            line("'$answer' is wrong answer ;(. Correct answer was 'no'.");
-            line("Let's try again, $userName!");
+            line("'$answer' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, $userName!");
             break;
         } elseif ($numDivisors === 2) {
-            line("'$answer' is wrong answer ;(. Correct answer was 'yes'.");
-            line("Let's try again, $userName!");
+            line("'$answer' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, $userName!");
             break;
         }
-    }
-    if (($answer == 'yes' && $numDivisors == 2) || ($answer == 'no' && $numDivisors  !== 2)) {
-        line("Congratulations, $userName!");
     }
 }

@@ -17,15 +17,16 @@ function searchForProgression()
         $progression = Engine\collectingTheProgression();
         Engine\askQuestion($progression);
         $answer = '';
-        $answer = Engine\getAnswer($answer);
+        Engine\getAnswer($answer);
         //чтобы прошло правильно сравнение меняем тип данных string на int
         $answer = (int)$answer;
-        if ($answer === $missingNumber) {
+        if ($answer === $missingNumber && $i === 2) {
+            line("Correct!\nCongratulations, $userName!");
+        } elseif ($answer === $missingNumber) {
             line("Correct!");
         } elseif ($answer !== $missingNumber) {
             Engine\printsAnError($answer, $missingNumber, $userName);
             break;
         }
     }
-        Engine\gotWinner($answer, $missingNumber, $userName);
 }

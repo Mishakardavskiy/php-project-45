@@ -32,12 +32,13 @@ function countingTheNumbers()
         $answer = '';
         Engine\getAnswer($answer);
         $answer = (int)$answer;
-        if ($answer === $result) {
+        if ($answer === $result && $i === 2) {
+            line("Correct!\nCongratulations, $userName!");
+        } elseif ($answer === $result) {
             line("Correct!");
         } elseif ($answer !== $result) {
             Engine\printsAnError($answer, $result, $userName);
             break;
         }
     }
-    Engine\gotWinner($answer, $result, $userName);
 }
